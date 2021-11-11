@@ -1,11 +1,12 @@
 package model.dao;
 
+import db.DB;
 import model.dao.impl.SellerDaoJDBC;
 
 public class DaoFactory {
-	//essa classe tem operaçoes static para instanciar os daos
-	//retorna um net SellerDaoJDBC
+	//essa classe tem operaçoes static para instanciar os dados
+	//retorna um new SellerDaoJDBC
 	public static SellerDao createSellerDao() {
-		return new SellerDaoJDBC();
+		return new SellerDaoJDBC(DB.getConnection());
 	}
 }
