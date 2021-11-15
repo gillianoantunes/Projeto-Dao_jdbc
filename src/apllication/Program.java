@@ -2,6 +2,7 @@ package apllication;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
@@ -11,6 +12,8 @@ import model.entities.Seller;
 public class Program {
 
 	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
 
 		// instacia sem new chamando a fabrica DaoFactory.metodo createSellerDao
 		// injeção de dependencia sem expor a implementação
@@ -57,6 +60,16 @@ public class Program {
 		//chama o update e salva alteração
 		sellerDao.update(seller);
 		System.out.println("Alteração feita");
+		
+		System.out.println("\n TESTE 6 ====== Seller delete ========");
+		System.out.println("Entre com o Id a ser deletado");
+		//recebe o id digitado declara o Scanner
+		int id = sc.nextInt();
+		//chama a função delete com o id digitado
+		sellerDao.delete(id);
+		System.out.println("Delete com sucesso");
+		
+		sc.close(); //fecha o Scanner
 	}
 
 }
